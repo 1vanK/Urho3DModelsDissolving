@@ -111,6 +111,17 @@ void PS()
         vec4 diffInput = texture2D(sDiffMap, vTexCoord.xy);
         #ifdef ALPHAMASK
             vec4 dissolveMapInput = texture2D(sEmissiveMap, vTexCoord.xy);
+            #if 0 // Simple line edge
+                if (dissolveMapInput.r < cDissolve + 0.02)
+                    diffInput = vec4(1.0, 0.7, 0.0, 1.0);
+            #else // Gradient
+                if (dissolveMapInput.r < cDissolve + 0.02)
+                {
+                    float delta = cDissolve + 0.02 - dissolveMapInput.r;
+                    diffInput.r += delta * 60.0;
+                    diffInput.g += delta * 30.0;
+                }
+            #endif
             if (dissolveMapInput.r < cDissolve)
                 discard;
         #endif

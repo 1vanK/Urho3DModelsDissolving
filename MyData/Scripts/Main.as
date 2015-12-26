@@ -1,6 +1,7 @@
 Scene@ scene_;
 Node@ cameraNode;
 Material@ characterMat;
+Material@ customCharacterMat;
 float cameraYaw = 0.0f;
 float cameraPitch = 15.0f;
 
@@ -37,7 +38,7 @@ void CreateScene()
     planeObject.castShadows = true;
 
     Node@ characterNode = scene_.CreateChild("Character");
-    characterNode.position = Vector3(0.0f, 0.0f, 0.0f);
+    characterNode.position = Vector3(-2.0f, 0.0f, 0.0f);
     characterNode.rotation = Quaternion(0.0f, 90.0f, 0.0f);
     StaticModel@ characterObject = characterNode.CreateComponent("StaticModel");
     characterObject.model = cache.GetResource("Model", "Models/Character.mdl");
@@ -45,7 +46,17 @@ void CreateScene()
     characterMat = material.Clone(); // unique material
     characterObject.material = characterMat;
     characterObject.castShadows = true;
-        
+
+    Node@ customCharacterNode = scene_.CreateChild("CustomCharacter");
+    customCharacterNode.position = Vector3(2.0f, 0.0f, 0.0f);
+    customCharacterNode.rotation = Quaternion(0.0f, 90.0f, 0.0f);
+    StaticModel@ customCharacterObject = customCharacterNode.CreateComponent("StaticModel");
+    customCharacterObject.model = cache.GetResource("Model", "Models/Character.mdl");
+    material = cache.GetResource("Material", "Materials/CharacterCustomDissolve.xml");
+    customCharacterMat = material.Clone();
+    customCharacterObject.material = customCharacterMat;
+    customCharacterObject.castShadows = true;
+
     Node@ lightNode = scene_.CreateChild("Light");
     lightNode.direction = Vector3(1.0f, -1.0f, 1.0f);
     Light@ light = lightNode.CreateComponent("Light");
@@ -99,6 +110,7 @@ void HandleSliderChanged(StringHash eventType, VariantMap& eventData)
 {
     float newValue = eventData["Value"].GetFloat();
     characterMat.shaderParameters["Dissolve"] = newValue;
+    customCharacterMat.shaderParameters["Dissolve"] = newValue;
 }
 
 

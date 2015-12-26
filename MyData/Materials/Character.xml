@@ -1,0 +1,10 @@
+<material>
+	<technique name="Techniques/DissolveDiffNormalSpecAlphaMask.xml"/>
+	<texture name="Textures/DIFFUSE_Character.jpg" unit="diffuse"/>
+	<texture name="Textures/NORMAL_Character.jpg" unit="normal"/>
+	<texture name="Textures/SPECULAR_Character.jpg" unit="specular"/>
+	<parameter name="MatDiffColor" value="1 1 1 0.8"/>
+	<parameter name="MatSpecColor" value="1 1 1 50"/>
+	<parameter name="Dissolve" value="0"/>
+	<texture name="Textures/DissolveMap.png" unit="emissive"/>
+</material>

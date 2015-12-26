@@ -7,4 +7,5 @@
 	<parameter name="MatSpecColor" value="1 1 1 50"/>
 	<parameter name="Dissolve" value="0"/>
 	<texture name="Textures/CustomDissolveMap.png" unit="emissive"/>
+	<cull value="none" />
 </material>

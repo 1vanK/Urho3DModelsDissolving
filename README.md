@@ -7,4 +7,5 @@ Model from: http://www.blendswap.com/blends/view/60989
 
 Use slider to dissolve
 
-![Screenshot](https://raw.githubusercontent.com/1vanK/Urho3DModelsDissolving/master/Screenshot.png)
+[![Video](https://raw.githubusercontent.com/1vanK/Urho3DModelsDissolving/master/PlayVideo.png)](http://www.youtube.com/watch?v=SmR_Xa-_Cgs)
+

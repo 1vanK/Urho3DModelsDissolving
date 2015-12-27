@@ -74,6 +74,8 @@ void CreateScene()
     
     Viewport@ viewport = Viewport(scene_, cameraNode.GetComponent("Camera"));
     renderer.viewports[0] = viewport;
+    viewport.renderPath.Append(cache.GetResource("XMLFile", "PostProcess/Bloom.xml"));
+    viewport.renderPath.Append(cache.GetResource("XMLFile", "PostProcess/FXAA3.xml"));
 }
 
 

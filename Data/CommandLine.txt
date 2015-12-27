@@ -1,1 +1,1 @@
-Scripts/NinjaSnowWar.as
+Scripts/Main.as -p "MyData;CoreData;Data" -w -x 800 -y 600
